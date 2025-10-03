@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
+   public function __construct(){
+    $this->middleware('auth'); // บังคับ login
+}
+
+
     public function index() {
         $rooms = Room::all();
         return view('rooms.index', compact('rooms'));
@@ -52,8 +57,9 @@ class RoomController extends Controller
         $room->delete();
         return redirect()->route('rooms.index')->with('success','ลบห้องเรียบร้อยแล้ว');
     }
+
     public function show(Room $room)
     {
-    return view('rooms.show', compact('room'));
+        return view('rooms.show', compact('room'));
     }
 }

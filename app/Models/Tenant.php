@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Room;
 use App\Models\Invoice;
 
-
 class Tenant extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'phone', 'room_id'];
+
+    protected $fillable = ['name', 'email', 'phone', 'room_id'];
 
     public function room()
     {
@@ -23,4 +23,3 @@ class Tenant extends Model
         return $this->hasMany(Invoice::class);
     }
 }
-
