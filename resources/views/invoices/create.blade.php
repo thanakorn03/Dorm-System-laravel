@@ -48,10 +48,11 @@
     <option value="">-- เลือกห้อง --</option>
     @foreach($rooms as $room)
         <option value="{{ $room->id }}" {{ old('room_id') == $room->id ? 'selected' : '' }}>
-            ห้อง {{ $room->room_number ?? $room->id }}
+            ห้อง {{ $room->room_number }}
         </option>
     @endforeach
 </select>
+
 
 
                 @error('room_id')

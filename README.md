@@ -1,61 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  dormitory-management-system (ระบบจัดการหอพัก)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+โปรเจกต์นี้เป็นระบบสำหรับจัดการข้อมูลภายในหอพัก พัฒนาด้วย Laravel Framework เพื่อเพิ่มความสะดวกในการบริหารจัดการข้อมูลผู้เช่า, ห้องพัก, การเงิน และการแจ้งซ่อมบำรุง
 
-## About Laravel
+## 🚀 Features (คุณสมบัติหลัก)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* **Authentication:** ระบบยืนยันตัวตน (Login/Register)
+* **Tenant Management:** การจัดการข้อมูลผู้เช่า (เพิ่ม, ลบ, แก้ไข)
+* **Room Management:** การจัดการข้อมูลห้องพัก (สถานะห้อง, ประเภทห้อง)
+* **Invoice Management:** ระบบออกใบแจ้งหนี้และติดตามการชำระเงิน
+* **Maintenance System:** ระบบแจ้งซ่อมและติดตามสถานะการซ่อม
+* **Profile Management:** การจัดการโปรไฟล์ผู้ใช้งาน
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Technology Stack (เทคโนโลยีที่ใช้)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Backend:** PHP (Laravel Framework)
+* **Frontend:** Blade Templates, CSS, JS
+* **Database:** SQLite
 
-## Learning Laravel
+## ⚙️ Installation (การติดตั้งเพื่อใช้งาน)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1.  Clone a repository:
+    ```bash
+    git clone [Your-Repo-URL]
+    cd [Your-Project-Folder]
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2.  ติดตั้ง Dependencies ของ PHP:
+    ```bash
+    composer install
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3.  คัดลอกไฟล์ Environment:
+    ```bash
+    cp .env.example .env
+    ```
 
-## Laravel Sponsors
+4.  สร้าง Application Key:
+    ```bash
+    php artisan key:generate
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5.  **ตั้งค่าฐานข้อมูล (สำคัญ):**
+    * โปรเจกต์นี้ใช้ SQLite ตรวจสอบว่าในไฟล์ `.env` มีการตั้งค่า `DB_CONNECTION=sqlite`
+    * (เนื่องจากคุณมีไฟล์ `database.sqlite` อยู่แล้ว ไม่ต้องตั้งค่า `DB_DATABASE` เพิ่มเติม)
 
-### Premium Partners
+6.  Run Database Migrations (สร้างตารางฐานข้อมูล):
+    ```bash
+    php artisan migrate
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+7.  (ถ้ามี) Run Seeders (เพิ่มข้อมูลเริ่มต้น):
+    ```bash
+    php artisan db:seed
+    ```
 
-## Contributing
+8.  รันเซิร์ฟเวอร์:
+    ```bash
+    php artisan serve
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9.  เปิดเว็บที่: `http://127.0.0.1:8000`
 
-## Code of Conduct
+## 🚀 วิธีใช้ Ngrok (สำหรับพรีเซนต์)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1.  รันโปรเจกต์ของคุณ ( `php artisan serve` )
+2.  เปิด Terminal/CMD อีกหน้าต่างหนึ่ง
+3.  รันคำสั่ง:
+    ```bash
+    ngrok http 8000
+    ```
+4.  คุณจะได้ URL (เช่น `https://xxxx-xxxx-xxxx.ngrok-free.app`) ส่งให้เพื่อนหรืออาจารย์เพื่อเข้าดูเว็บของคุณได้เลย

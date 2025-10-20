@@ -15,10 +15,11 @@ class InvoiceController extends Controller
     }
 
     public function create() {
-        $tenants = Tenant::with('room')->get();
-        $rooms   = Room::all();
-        return view('invoices.create', compact('tenants','rooms'));
-    }
+    $tenants = Tenant::with('room')->get();
+    $rooms = Room::all();
+    return view('invoices.create', compact('tenants', 'rooms'));
+}
+
 
     public function store(Request $request) {
         $validated = $request->validate([
